@@ -1,5 +1,5 @@
 import { Header } from './components/Header'
-import { List } from './components/List'
+import { TaskList } from './components/TaskList'
 
 import './global.css'
 
@@ -9,7 +9,7 @@ export function App() {
     <div className="App">
       <Header />
       <main>
-        <List/>
+        <TaskList/>
       </main>
     </div>
   )
