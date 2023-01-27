@@ -1,0 +1,28 @@
+.tasksList {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    width: 46rem;
+    height: 5rem;
+    border-radius: 8px;
+    background: var(--gray-500);
+    border: 1px solid var(--gray-400);
+}
+
+.taskListTextContent {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--gray-100); 
+    width: 39rem;
+}
+
+.deleteTask {
+    cursor: pointer;
+}
+
+.finishTask {
+    cursor: pointer;
+}

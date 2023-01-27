@@ -1,0 +1,104 @@
+.todoForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+    top: -2rem;
+}
+
+.todoForm textarea {
+    resize: none;
+    width: 40rem;
+    height: 3.375rem;
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--gray-100);
+    background: var(--gray-500);
+    border: 0;
+    overflow-y: hidden;
+}
+
+.todoFormButton {
+    display: flex;
+    gap: 0.5rem;
+    border-radius: 8px;
+    padding: 0.8rem;
+    background: var(--blue-dark);
+    color: var(--gray-100);
+    border: 0;
+    cursor: pointer;
+}
+
+.todoForm textarea:focus {
+    outline: 2px solid var(--gray-300)
+}
+
+.todoFormButton:focus {
+    outline: 2px solid var(--blue)
+}
+
+.taskStatus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 27rem;
+}
+
+.createdTask {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    gap: 0.5rem;
+}
+
+.doneTask {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--purple);
+}
+
+.taskCounter {
+    border-radius: 999px;
+    padding: 0.125rem 0.5rem;
+    color: var(--gray-100);
+    background: var(--gray-400);
+    font-weight: 700;
+}
+
+.taskBoxEmpty {
+    padding-top: 5.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem
+}
+
+.taskBoxEmptyText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--gray-300);
+}
+
+.taskBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.task {
+    margin-top: 2rem
+}
+
+.task + .task {
+    margin-top: 1rem;
+}

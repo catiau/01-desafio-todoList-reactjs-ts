@@ -1,7 +1,10 @@
 import { PlusCircle } from 'phosphor-react'
 import { FormEvent, useState, ChangeEvent } from 'react'
-import styles from './List.module.css'
+import styles from './TaskList.module.css'
 import { v4 as uuidv4 } from 'uuid'
+
+import clipBoard from '../assets/clipBoard.svg'
+import { Task } from './Task'
 
 interface TasksProps {
     title: string,
@@ -44,9 +47,13 @@ export function TaskList() {
         }
     }
 
+    const createdTasks = tasks.length
+
+    const isTodoListEmpty = createdTasks === 0
+
     return (
         <div>
-            <form onSubmit={handleCreateNewTask}>
+            <form onSubmit={handleCreateNewTask} className={styles.todoForm}>
                 <textarea
                     name='task'
                     placeholder='Adicione uma nova tarefa'
@@ -55,10 +62,55 @@ export function TaskList() {
                 
                 />
                 
-                <button type='submit'>
+                <button type='submit' className={styles.todoFormButton}>
+                    <PlusCircle size={24}/>
                     Criar
                 </button>
             </form>
+            <div className={styles.taskStatus}>
+                <span 
+                    className={styles.createdTask}>
+                    Tarefas Criadas
+                    <span 
+                        className={styles.taskCounter}>
+                        {createdTasks}
+                    </span> 
+                </span>
+                <span 
+                    className={styles.doneTask}>
+                    Concluídas
+                   <span 
+                        className={styles.taskCounter}>
+                        {} de {createdTasks}
+                    </span> 
+                </span>
+            </div>
+
+            <div className={styles.taskBox}>
+                {isTodoListEmpty ? (
+                    <div className={styles.taskBoxEmpty}>
+                        <img src={clipBoard} />
+                        <div className={styles.taskBoxEmptyText}>
+                            <h4>Você ainda não tem tarefas cadastradas</h4>
+                            <span>Crie tarefas e organize seus itens a fazer</span>
+                        </div>
+                    </div>
+        
+                ) : (
+                    tasks.map((task) => {
+                        return (
+                            <div className={styles.task}>
+                                <Task 
+                                    title={task.title} 
+                                    key={task.id}
+                                    id={task.id}
+                                    checked={task.checked}
+                                />
+                            </div>
+                        )
+                    })
+                )}
+            </div>
         </div>
     )
 }
