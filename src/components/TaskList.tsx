@@ -36,7 +36,7 @@ export function TaskList() {
         setNewTaskText(event.target.value)
     }
 
-    function handleDeleteTask(taskToDelete: TasksProps){
+    function deleteTask(taskToDelete: TasksProps){
         const tasksWithoutDeletedOne = tasks.filter(task => {
             return task.id !== taskToDelete.id
         })
@@ -44,6 +44,16 @@ export function TaskList() {
 
         if(taskToDelete.checked){
             setCompletedTasks((prev) => prev - 1)
+        }
+    }
+
+    function handleCheckTask(task: TasksProps, checkTask: boolean){
+        if(checkTask) {
+            setCompletedTasks((prev) => prev + 1)
+            task.checked = true
+        } else {
+            setCompletedTasks((prev) => prev - 1)
+            task.checked = false
         }
     }
 
@@ -81,7 +91,7 @@ export function TaskList() {
                     Concluídas
                    <span 
                         className={styles.taskCounter}>
-                        {} de {createdTasks}
+                        {completedTasks} de {createdTasks}
                     </span> 
                 </span>
             </div>
@@ -104,6 +114,8 @@ export function TaskList() {
                                     title={task.title} 
                                     key={task.id}
                                     id={task.id}
+                                    onCheck={(event: any) => handleCheckTask(task, event.target.checked)}
+                                    onDelete={() => deleteTask(task)}
                                     checked={task.checked}
                                 />
                             </div>

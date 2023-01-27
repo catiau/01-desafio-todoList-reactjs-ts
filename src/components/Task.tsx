@@ -5,25 +5,34 @@ type TaskType = {
     title: string
     id: number
     checked: boolean
+    onDelete: () => void
+    onCheck: (event: any) => void
 }
 
-export function Task({ title }: TaskType) {
-
+export function Task({ title, onDelete, onCheck, checked }: TaskType) {
 
     return (
-        <div className={styles.tasksList}>
-            <div className={styles.finishTask}>
-                
+        <div className={checked ? styles.completedTaskList : styles.tasksList}>
+            <div className={styles.completeTask}>
+                <input
+                    // className={checked ? styles.completedTaskInput: styles.incompletedTaskInput} 
+                    type="checkbox" 
+                    onChange={onCheck}
+                />
             </div>
-            <div className={styles.taskListTextContent}>
-                <span>{title}</span>
-            </div>
-            <div className={styles.deleteTask}>
+            <label 
+                className={styles.taskListTextContent}
+                style={checked ? {textDecoration: "line-through", color: "#808080" } : {textDecoration: "none"} }
+            >
+                <h4>{title}</h4>
+            </label>
+            <button className={styles.deleteTask}>
                 <Trash 
                     size={24} 
                     color="#808080"
+                    onClick={onDelete}
                 />
-            </div>
+            </button>
         </div>
     )
 }
