@@ -70,7 +70,6 @@ export function TaskList() {
                     value={newTaskText}
                     onChange={handleNewTaskChange}
                     required
-                
                 />
                 
                 <button type='submit' className={styles.todoFormButton}>
