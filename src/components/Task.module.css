@@ -6,9 +6,10 @@
     width: 46rem;
     height: 5rem;
     border-radius: 8px;
-    background: var(--gray-400);
-    border: 1px solid var(--gray-500);
+    background: var(--gray-500);
+    border: 1.5px solid var(--gray-400);
 }
+
 
 .completedTaskList{ 
     display: flex;
@@ -19,7 +20,7 @@
     height: 5rem;
     border-radius: 8px;
     background: var(--gray-500);
-    border: 1px solid var(--gray-400);
+    border: 1px solid var(--gray-500);
 }
 
 .taskListTextContent {
@@ -39,4 +40,39 @@
 
 .completedTaskInput {
     cursor: pointer;
+}
+
+input[type="checkbox"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    apperance: none;
+    -webkit-appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    border: 2px solid var(--blue);
+    cursor: pointer;
+}
+
+input[type="checkbox"]:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    font-size: 10px;
+    color: var(--gray-100);
+    font-weight: 900;
+    display: none;
+}
+
+input[type="checkbox"]:hover {
+    background-color: var(--gray-500)
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--purple-dark);
+    border: 0
+}
+
+input[type="checkbox"]:checked:after {
+    display: block;
 }

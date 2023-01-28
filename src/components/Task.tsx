@@ -1,4 +1,4 @@
-import { Trash } from 'phosphor-react'
+import { Check, Trash } from 'phosphor-react'
 import styles from './Task.module.css'
 
 type TaskType = {
@@ -15,7 +15,6 @@ export function Task({ title, onDelete, onCheck, checked }: TaskType) {
         <div className={checked ? styles.completedTaskList : styles.tasksList}>
             <div className={styles.completeTask}>
                 <input
-                    // className={checked ? styles.completedTaskInput: styles.incompletedTaskInput} 
                     type="checkbox" 
                     onChange={onCheck}
                 />
