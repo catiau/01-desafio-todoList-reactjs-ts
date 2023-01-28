@@ -69,6 +69,7 @@ export function TaskList() {
                     placeholder='Adicione uma nova tarefa'
                     value={newTaskText}
                     onChange={handleNewTaskChange}
+                    required
                 
                 />
                 
